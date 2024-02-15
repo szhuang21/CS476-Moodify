@@ -1,0 +1,51 @@
+[
+  {
+    "name": "book",
+    "value": 22.22222222222222,
+    "marker": {
+      "symbol": "url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png)"
+    }
+  },
+  {
+    "name": "stressed",
+    "value": 22.22222222222222,
+    "marker": {
+      "symbol": "url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png)"
+    }
+  },
+  {
+    "name": "sad",
+    "value": 11.11111111111111,
+    "marker": {
+      "symbol": "url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png)"
+    }
+  },
+  {
+    "name": "shrug",
+    "value": 11.11111111111111,
+    "marker": {
+      "symbol": "url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png)"
+    }
+  },
+  {
+    "name": "home",
+    "value": 11.11111111111111,
+    "marker": {
+      "symbol": "url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png)"
+    }
+  },
+  {
+    "name": "sleepy",
+    "value": 11.11111111111111,
+    "marker": {
+      "symbol": "url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png)"
+    }
+  },
+  {
+    "name": "bye",
+    "value": 11.11111111111111,
+    "marker": {
+      "symbol": "url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png)"
+    }
+  }
+]
