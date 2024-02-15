@@ -1,5 +1,6 @@
 # CS476-Moodify
 
+**Run Instructions**
 1. Install Packages
 - `pip3 install python-highcharts` or `pip install python-highcharts`
 
