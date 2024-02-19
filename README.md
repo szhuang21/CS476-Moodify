@@ -3,6 +3,7 @@
 **Run Instructions**
 1. Install Packages
 - `pip3 install python-highcharts` or `pip install python-highcharts`
+- `pip install pandas`
 
 2. Run HTML File in **Live Server** (see instructions below for help)
 
