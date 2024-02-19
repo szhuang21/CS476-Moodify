@@ -17,9 +17,9 @@ window.addEventListener("load", () => {
     plotOptions: {
       packedbubble: {
         minSize: "30%",
-        maxSize: "120%",
+        maxSize: "600%",
         zMin: 0,
-        zMax: 100,
+        zMax: 1000,
         marker: {
           symbol: 'circle',
           fillColor: 'transparent',
