@@ -19,10 +19,13 @@ window.addEventListener("load", () => {
         zMax: 100,
       },
     },
-    /*  tooltip: { // TODO: add information to tooltips
-    useHTML: true,
-    pointFormat: '<b>{data.name} title emoji'
-  },  */
+    tooltip: {
+      useHTML: true,
+      formatter: function () {
+        const roundedValue = this.point.value.toFixed(0);
+        return `<b>${this.point.name}</b><br>usage: ${roundedValue}%`;
+      },
+    },
     series: [
       {
         marker: {
