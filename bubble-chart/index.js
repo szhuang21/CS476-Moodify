@@ -8,6 +8,9 @@ window.addEventListener("load", () => {
   console.log(data);
 
   Highcharts.chart("container", {
+    title: {
+      text: "",
+    },
     chart: {
       type: "packedbubble",
     },
@@ -17,6 +20,11 @@ window.addEventListener("load", () => {
         maxSize: "120%",
         zMin: 0,
         zMax: 100,
+        marker: {
+          symbol: 'circle',
+          fillColor: 'transparent',
+          lineColor: 'transparent'
+        },
       },
     },
     tooltip: {
@@ -28,9 +36,7 @@ window.addEventListener("load", () => {
     },
     series: [
       {
-        marker: {
-          symbol: "url(https://www.highcharts.com/samples/graphics/earth.svg)",
-        },
+        name: "",
         data: data,
       },
     ],
