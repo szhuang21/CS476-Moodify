@@ -36,8 +36,10 @@ def uploadFile():
  
         session['uploaded_data_file_path'] = os.path.join(app.config['UPLOAD_FOLDER'],
                      data_filename)
- 
-        return render_template('upload-page.html')
+        print("render_template")
+        return render_template('bubble_page.html')
+    # return
+    #     return render_template('bubble_page.html')
     return render_template("upload-page.html")
 
 if __name__ == '__main__':

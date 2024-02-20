@@ -16,17 +16,13 @@
     <div class="header-container">
       <h1>Moodify</h1>
       <h1>Text Conversations Represented by Emojis</h1>
-      <div>hello</div>
+      <h1>bubble page</h1>
+      
     </div>
-
-    <form
-      method="POST"
-      enctype="multipart/form-data"
-      action="http://127.0.0.1:5000/"
-    >
-      <input type="file" name="file" accept=".csv" />
-      <input type="submit" value="Upload" />
-    </form>
-    <p style="color: blue">Choose csv file to upload</p>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script type="module" src="bubble_index.js"></script>
+    <div id="container"></div>
   </body>
 </html>
