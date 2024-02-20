@@ -19,17 +19,19 @@ fetch('data.json')
           type: 'bar'
       },
       title: {
-          text: 'Top Three Emojis Used'
+          text: 'Top Three Emojis Used in Conversation'
       },
       xAxis: {
           categories: categories.map(symbol => `<img src="${symbol}" style="width: 30px; height: 30px;">`),
           labels: {
               useHTML: true
-          }
+          }, title: {
+            text: 'Emojis'
+        }
       },
       yAxis: {
           title: {
-              text: 'Number of Times Used'
+              text: 'Percent of Times Used in Conversation'
           }
       },
       plotOptions: {
