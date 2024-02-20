@@ -2,7 +2,7 @@
 
 from flask import Flask, request, render_template
 import csv
-from implementation import convert_to_data_array  
+from implementation import create_data_json  
 from flask_cors import CORS
 from distutils.log import debug
 from fileinput import filename
@@ -25,11 +25,15 @@ def uploadFile():
     if request.method == 'POST':
         print("/ endpoint hit")
         f = request.files.get('file')
+        print("line 28")
         data_filename = "messages.csv"
         f.save(os.path.join(app.config['UPLOAD_FOLDER'],
                             data_filename))
+        print("line 32")
         session['uploaded_data_file_path'] = os.path.join(app.config['UPLOAD_FOLDER'],
                      data_filename)
+        print("line 35")
+        create_data_json()
         return render_template('bubble_page.html')
     return render_template("upload_page.html")
 

@@ -41,33 +41,37 @@ final = [ ("delicious", ["delicious", "yummy", "nom nom", "nomnom", "tasty","yum
 final = final[0]
 
 def create_data_json():
-    # word_to_emoji = {'so funny': 2, 'crazy': 2, 'poop': 1, 'okay': 2, 'cool': 4, 'love': 2, 'happy': 3, 'delicious': 1, 'book': 2, 'stressed': 2, 'sad': 1, 'shrug': 1, 'home': 1, 'sleepy': 1, 'bye': 1}
+    print("create_data_json() called")
     word_to_emoji = read_messages_csv()
     data_array = convert_to_data_array(word_to_emoji)
     print("data_array: ", data_array)
 
     # writes the data to a separate JSON file to be used in highcharts and html
-    with open('data.json', 'w') as json_file:
+    with open('static/data.json', 'w') as json_file:
         json.dump(data_array, json_file)
 
     print("Data has been written to 'data.json' file.")
 
 def read_messages_csv(): # Will upload CSV and find the column with "Text"
+    print("read_messages_csv() called")
     data = pd.read_csv("staticFiles/uploads/messages.csv", encoding='latin1')
     data.head()
     text_data = data['Text'].tolist()
-    word_to_emoji = {}
 
-    for sentence in text_data:  #get sentence from the text file
+    # Removing punctuation and converting to lowercase
+    cleaned_data = [''.join(c for c in s if isinstance(s, str) and (c.isalpha() or c.isspace())) for s in text_data if s is not None and isinstance(s, str)]
+    cleaned_data = [s.replace('Â\xa0', '') for s in cleaned_data]
+    cleaned_data = [s.lower() for s in cleaned_data]
+    print("\ncleaned data: ", cleaned_data)
+
+    word_to_emoji = {}
+    for sentence in cleaned_data:  #get sentence from the text file
         for map_word, list_of_words in final: #go through all the emoji word lists above
             for curr_word in list_of_words:
-                #if curr_word in sentence:   #only adding to mapping if the word is in our word to emoji list
                 if re.search(r'\b' + curr_word + r'\b', sentence):  #make sure the entire word is in one of the words in the list. E.g. Fixes "ok" in {book} to be false.
                     if map_word in word_to_emoji.keys():
-                        #print("the current sentence is:----", sentence, "-----and we are looking for the word----", curr_word, "----and the category it is placed in is:", map_word)
                         word_to_emoji[map_word] += 1
                     else:
-                        #print("the current sentence is:-----", sentence, "-----and we are looking for the word----", curr_word, "-----and the category it is placed in is:", map_word)
                         word_to_emoji[map_word] = 1
 
     word_to_emoji = dict(sorted(word_to_emoji.items(), key=lambda item: item[1], reverse=True))
@@ -75,9 +79,9 @@ def read_messages_csv(): # Will upload CSV and find the column with "Text"
     return word_to_emoji
 
 def convert_to_data_array(data_structure):
+    print("covert_to_data_array() called")
     data_array = []
     total_occurrences = sum(data_structure.values())
-    
     for key, value in data_structure.items():
         datapoint = {
             "name": key,
@@ -87,7 +91,4 @@ def convert_to_data_array(data_structure):
             }
         }
         data_array.append(datapoint)
-    
     return data_array
-
-# create_data_json()
