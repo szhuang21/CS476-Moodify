@@ -3,6 +3,8 @@
  */
 // import data from "../data.json" assert { type: "json" };
 // ("use strict");
+
+// TODO change this data
 const data = [
   {
     name: "so funny",

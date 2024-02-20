@@ -3,6 +3,8 @@ import pandas as pd
 import string
 import re
 
+# call create_data_json() to create data.json 
+
 emoji_to_image = {
     "delicious": "url(https://cdn.shopify.com/s/files/1/1061/1924/products/Hungry_Emoji_Icon_c20f1808-f3e2-4051-8941-3d157764e8cb.png?v=1485573460)",
     "happy": "url(https://cdn.shopify.com/s/files/1/1061/1924/files/Smliing_Emoji_Icon.png?13752525173949329807)",
@@ -37,6 +39,18 @@ final = [ ("delicious", ["delicious", "yummy", "nom nom", "nomnom", "tasty","yum
 ("home", ["home", "house", "townhouse", "townhome", "town home", "homes", "houses","townhouses", "townhomes", "town homes"]),
 ("bye", ["bye", "hi", "hello", "see ya", "bye bye", "hey", "slap", "wave", "waving","goodbye", "wave goodbye", "waving goodbye", "see you later", "ttfn"])],
 final = final[0]
+
+def create_data_json():
+    # word_to_emoji = {'so funny': 2, 'crazy': 2, 'poop': 1, 'okay': 2, 'cool': 4, 'love': 2, 'happy': 3, 'delicious': 1, 'book': 2, 'stressed': 2, 'sad': 1, 'shrug': 1, 'home': 1, 'sleepy': 1, 'bye': 1}
+    word_to_emoji = read_messages_csv()
+    data_array = convert_to_data_array(word_to_emoji)
+    print("data_array: ", data_array)
+
+    # writes the data to a separate JSON file to be used in highcharts and html
+    with open('data.json', 'w') as json_file:
+        json.dump(data_array, json_file)
+
+    print("Data has been written to 'data.json' file.")
 
 def read_messages_csv(): # Will upload CSV and find the column with "Text"
     data = pd.read_csv("staticFiles/uploads/messages.csv", encoding='latin1')
@@ -75,17 +89,5 @@ def convert_to_data_array(data_structure):
         data_array.append(datapoint)
     
     return data_array
-
-def create_data_json():
-    # word_to_emoji = {'so funny': 2, 'crazy': 2, 'poop': 1, 'okay': 2, 'cool': 4, 'love': 2, 'happy': 3, 'delicious': 1, 'book': 2, 'stressed': 2, 'sad': 1, 'shrug': 1, 'home': 1, 'sleepy': 1, 'bye': 1}
-    word_to_emoji = read_messages_csv()
-    data_array = convert_to_data_array(word_to_emoji)
-    print("data_array: ", data_array)
-
-    # writes the data to a separate JSON file to be used in highcharts and html
-    with open('data.json', 'w') as json_file:
-        json.dump(data_array, json_file)
-
-    print("Data has been written to 'data.json' file.")
 
 # create_data_json()
